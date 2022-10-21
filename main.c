@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdint.h>
-int main()
+int positivity(int8_t x)
 {
-    int8_t x=-10;
-    for(;x<10;x++){
+    // Returns 1 if x is positive,
+    //         0 if x is zero,
+    //        -1 if x is negative. 
       int8_t y=x>>8;
       int8_t z=x|y;
       int8_t m=!!z;
@@ -12,7 +13,12 @@ int main()
       int8_t t=s&p;
       int8_t d=t>>7;
       int8_t result=d|t;
-      printf("for %d, result is %d\n", x,result);
+      return result;
+}
+int main(){
+    int8_t x=-10;
+    for(;x<10;x++){
+        int result=positivity(x);
+        printf("for %d, result is %d\n", x,result);
     }
-    return 0;
 }
